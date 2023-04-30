@@ -1,0 +1,57 @@
+.sidebar {
+    width: 16%;
+    height:84vh;
+    float: right;
+    padding:1%;
+    background: #ECBEBE;
+    border-radius: 20px;
+    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+    margin-right:0.5vw;
+    margin-top:0.5vw;
+  }
+  
+  .summary {
+    padding: 32px;
+    height:72vh;
+  }
+  
+  .summary h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .summary p {
+    font-size: 16px;
+    margin: 16px 0;
+  }
+
+  .file-upload {
+    display: flex;
+    align-items: center;
+    width: 16vw;
+    height: 7vh;
+    background: #FABFBF;
+    border-radius: 20px;
+  }
+  
+  .file-path {
+    flex: 1;
+    margin-left:20px;
+  }
+  
+  #file-name {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  #file-upload-icon {
+    margin-left: 10px;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: black;
+    margin: 0 0;
+  }

@@ -1,0 +1,130 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: rgba(223, 167, 160, 0.53);
+    height:100vh;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+ 
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 32px;
+    margin-top: 32px;
+    width: 80%;
+    float: left;
+    margin-left:18px;
+    
+  }
+  
+  .article {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color:#D99494;
+    border-radius: 20px;
+  }
+
+  .article-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .article-icon {
+    width: 1vw;
+    height:2vh;
+    margin-top:10px;
+    margin-left:10px;
+  }
+  .article-title{
+    font-family: 'Paprika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #040404;
+  }
+  
+  .article-info {
+    display: grid;
+    grid-template-columns: 5fr 2fr 2fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+      "description image image"
+      "description button button "
+      "description share like";
+    align-items: start; 
+  }
+
+  .article-image {
+    grid-area: image;
+    width: 100%;
+    background-color: pink;
+    height: 10vh;
+    border-radius: 0 0 0 15%;
+  }
+
+  .article-description {
+    font-size: 16px;
+    margin: 0;
+    grid-area: description;
+    margin-left:0.1vw;
+  }
+
+  .article-button {
+    grid-area: button;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top:30px;
+    background: #F3DEDE;
+    border: 1px solid #E6E6E6;
+    color:red;
+    border-radius: 16px;
+    width: 5vw; 
+    height:3vh;
+    justify-self: center;
+    font-family: 'Pattaya';
+    font-weight: bold;
+    
+  }
+  
+  .article-share {
+    grid-area: share;
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: center;
+    margin-bottom:2vh;
+    margin-top:2vh;
+    width:1vw;
+    height:2vh;
+    margin-left:2vw;
+  }
+  
+  .article-like {
+    grid-area: like;
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: center;
+    margin-left:2vw;
+    width:1vw;
+    height:2vh;
+    margin-bottom:2vh;
+    margin-top:2vh;
+    margin-right:2vw;
+  }
+
+  .content {
+    width: 80%;
+    float: left;
+  }
+
+
+  
+
+ 
+  
