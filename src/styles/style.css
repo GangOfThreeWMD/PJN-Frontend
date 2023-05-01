@@ -78,7 +78,7 @@
   .article-button {
     grid-area: button;
     color: white;
-    font-size: 14px;
+    font-size: 0.5vw;
     cursor: pointer;
     margin-top:30px;
     background: #F3DEDE;
@@ -90,7 +90,6 @@
     justify-self: center;
     font-family: 'Pattaya';
     font-weight: bold;
-    
   }
   
   .article-share {

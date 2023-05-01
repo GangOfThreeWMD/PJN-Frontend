@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/style.css';
 import attach from '../assets/attach.png';
-import love from '../assets/like.png';
+import like from '../assets/like.png';
 import share from '../assets/share.png';
 
 
@@ -10,7 +10,7 @@ const Article = (props) => {
     <div className="article">
   
       <div className="article-header">
-        <img src={attach} width="auto" className="article-icon" />
+        <img src={attach} width="auto" className="article-icon" alt="attachment" />
         <h2 className="article-title">{props.title}</h2>
       </div>
       <hr />
@@ -18,8 +18,8 @@ const Article = (props) => {
         <img src={props.image} className="article-image" alt="article" />
         <p className="article-description">{props.description}</p>
         <button className="article-button">Go to Article</button>
-        <img src={love} className="article-share" alt="share" />
-        <img src={share} className="article-like" alt="like" />
+        <img src={like} className="article-share" alt="like" />
+        <img src={share} className="article-like" alt="share" />
       </div>
     </div>
 

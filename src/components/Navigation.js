@@ -8,10 +8,10 @@ const Navigation = () => {
   return (
     <div className="navbar">
       <Navbar style={{ display: 'flex', alignItems: 'center' }}>
-        <img src={logo} width="auto" className="logo" />
+        <img src={logo} width="auto" className="logo" alt="logo" />
       </Navbar>
       <div className="search-bar search-bar">
-        <img src={search_icon} width="30" height="30" className="nav-icon" />
+        <img src={search_icon} width="30" height="30" className="nav-icon" alt="search-icon" />
         <Form inline>
           <FormControl type="text" placeholder="Prompt text here" className="form-control" />
         </Form>
