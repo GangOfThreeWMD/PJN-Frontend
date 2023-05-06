@@ -2,6 +2,7 @@
   width: 100%;
   height: 10vh;
   background-color: #dfa7a0;
+  position:relative;
 }
 .logo {
   height: 100%;
@@ -30,7 +31,7 @@
   width: 30vw;
   height: 5vh;
   left: 35%;
-  top: 2.5%;
+  top: 25%;
   background: #F0BDBD;
   border-radius: 17px;
 }
