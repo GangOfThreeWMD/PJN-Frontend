@@ -1,43 +1,52 @@
 .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 10vh;
   background-color: #dfa7a0;
-  position:relative;
+  position: relative;
 }
+
 .logo {
   height: 100%;
   max-height: 10vh;
   width: auto;
-  margin-left:1%;
+  margin-right: 2rem;
 }
-.form-control {
-  margin-left: 25px;
-  background-color: #f0bdbd;
-  border: none;
-  font-size: 32px;
-  width: 25vw;
-  outline: none;
+
+.search-bar {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  position:absolute;
+  left:46%;
 }
-.nav-icon {
-  margin-left: 25px;
+
+
+select {
+  width: 200px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #F0BDBD;
+  box-shadow: none;
+  font-family: 'Pattaya';
+  text-align:center;
 }
-.form-control:focus {
-  outline-color: #f0bdbd;
-  border-color: #f0bdbd;
+
+option {
+  font-size: 16px;
+  color: #333;
+  background-color: #F0BDBD;
+  font-family: 'Pattaya';
 }
-.search-bar{
-  position: absolute;
-  margin:0;
-  width: 30vw;
-  height: 5vh;
-  left: 35%;
-  top: 25%;
-  background: #F0BDBD;
-  border-radius: 17px;
+
+.tekst {
+  text-align:center;
+  margin-bottom: 0;
 }
-hr {
-  border: none;
-  height: 1px;
-  background-color: black;
-  margin: 0 0;
+
+.dropdown {
+  margin-top:-25px;
 }

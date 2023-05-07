@@ -3,6 +3,7 @@ import '../styles/style.css';
 import attach from '../assets/attach.png';
 import like from '../assets/like.png';
 import share from '../assets/share.png';
+import art from '../assets/art.png';
 
 const Article = (props) => {
   const handleClick = () => {
@@ -17,7 +18,7 @@ const Article = (props) => {
       </div>
       <hr />
       <div className="article-info">
-        <img src={props.image} className="article-image" alt="article" />
+        <img src={props.image || art} className="article-image" alt="article-image" />
         <p className="article-description">{props.description}</p>
         <button className="article-button" onClick={handleClick}>Go to Article</button>
         <img src={like} className="article-share" alt="like" />

@@ -14,7 +14,7 @@
  
   .articles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 32px;
     margin-top: 32px;
     width: 80%;
@@ -33,7 +33,7 @@
 
   .article-header {
     display: grid;
-    grid-template-columns: 0.5fr 2fr;
+    grid-template-columns: 0.3fr 2fr;
     height:20%;
     align-items: center;
   }
@@ -50,6 +50,8 @@
     font-weight: 400;
     font-size: 16px;
     color: #040404;
+    margin-right:20px;
+    text-align:center;
   }
   
   .article-info {
@@ -66,10 +68,12 @@
   .article-image {
     grid-area: image;
     width: 100%;
+    height: auto;
     background-color: pink;
-    height: 10vh;
+    max-height: 10vh;
     border-radius: 0 0 0 15%;
   }
+  
 
   .article-description {
     font-size: 16px;
@@ -123,6 +127,15 @@
   .content {
     width: 80%;
     float: left;
+  }
+  
+  .loading{
+    font-size:20px;
+    font-weight: bold;
+    text-align:center;
+    position:fixed;
+    width:100%;
+    margin-top:5px;
   }
 
 

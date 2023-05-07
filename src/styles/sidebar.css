@@ -40,15 +40,16 @@
     margin-left:20px;
   }
   
-  #file-name {
+  .file-name {
     font-weight: bold;
     margin: 0;
   }
   
-  #file-upload-icon {
+  .file-upload-icon {
     margin-left: 10px;
-    height:6vh;
-    width:4vw;
+    height:100%;
+    width:auto;
+    max-height:6vh;
   }
 
   hr {
@@ -57,3 +58,4 @@
     background-color: black;
     margin: 0 0;
   }
+ 
