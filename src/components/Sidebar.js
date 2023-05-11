@@ -43,7 +43,7 @@ return (
       <p>Uploaded file: <span id="file-name">{fileName}</span></p>
     </div>
     <label htmlFor="file-upload" className="file-upload-label">
-      <img src={add_file} alt="Wgraj plik" className="file-upload-icon" />
+      <img src={add_file} alt="Input file" className="file-upload-icon" />
     </label>
     <input type="file" id="file-upload" style={{ display: "none" }} accept=".txt" onChange={handleFileUpload} />
   </div>

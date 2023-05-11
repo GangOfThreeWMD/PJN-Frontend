@@ -1,3 +1,5 @@
+@import url('../App.css');
+
 .navbar {
   display: flex;
   align-items: center;
@@ -13,40 +15,98 @@
   max-height: 10vh;
   width: auto;
   margin-right: 2rem;
+  margin-left:1vw;
 }
 
 .search-bar {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
   position:absolute;
-  left:46%;
+  left:36%;
 }
 
-
 select {
-  width: 200px;
+  width: 300px;
   padding: 10px;
   font-size: 20px;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #F0BDBD;
+  background-color: inherit;
   box-shadow: none;
-  font-family: 'Pattaya';
-  text-align:center;
+  font-family: 'Numans';
+  text-align: center;
+  border: none; 
+  appearance: none;
+}
+select:focus {
+  outline: none;
 }
 
 option {
   font-size: 16px;
   color: #333;
-  background-color: #F0BDBD;
-  font-family: 'Pattaya';
+  background-color: #F7CDC8;;
+  text-align-last: center;
+  text-align: center;
 }
 
-.tekst {
-  text-align:center;
-  margin-bottom: 0;
+.dropdown{
+  background-color:#F0BDBD;
+  border-radius:17px;
+  font-size:20px;
+  position: absolute;
+  width: 300px;
+  height:60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.dropdown {
-  margin-top:-25px;
+.dropdown-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 16px 32px 16px;
+  border-color: transparent transparent #E28585 transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.rotate {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.limit_box{
+  width:200px;
+  height:60px;
+  background-color:#F0BDBD;
+  border-radius:17px;
+  display: flex;
+  align-items: center;
+  position:relative;
+  left: 256%;
+}
+.dropdown_num{
+  background-color:#F0BDBD;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Numans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  display: flex;
+  color: #000000;
+  text-align:left;
+}
+.limit_box p{
+  margin-left:10%;
+  font-family: 'Numans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  color: #000000;
 }

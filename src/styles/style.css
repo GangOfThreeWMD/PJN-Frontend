@@ -1,3 +1,5 @@
+@import url('../App.css');
+
 .container {
     max-width: 100%;
     margin: 0 auto;
@@ -14,8 +16,8 @@
  
   .articles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
     margin-top: 32px;
     width: 80%;
     float: left;
@@ -29,29 +31,40 @@
     overflow: hidden;
     background-color:#D99494;
     border-radius: 20px;
+    height:35vh;
   }
 
   .article-header {
+    position: relative;
     display: grid;
-    grid-template-columns: 0.3fr 2fr;
-    height:20%;
+    grid-template-columns: 0.4fr 2fr;
+    height: 20%;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
   }
-
+  
   .article-icon {
-    width: 1vw;
-    height:2vh;
-    margin-top:2%;
-    margin-left:10px;
+    position: absolute;
+    top: 60%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
   }
-  .article-title{
+  
+  .article-title {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    left: calc(20px + 2vw + 10px);
+    transform: translateY(-50%);
     font-family: 'Paprika';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     color: #040404;
-    margin-right:20px;
-    text-align:center;
+    text-align: center;
   }
   
   .article-info {
@@ -79,21 +92,25 @@
     font-size: 16px;
     margin: 0;
     grid-area: description;
-    margin-left:0.1vw;
+    margin-left:0.4vw;
+    margin-right:0.4vw;
+    margin-top:0.4vh;
+    text-align:left;
+    font-family: 'Numans';
   }
 
   .article-button {
     grid-area: button;
     color: white;
-    font-size: 0.5vw;
+    font-size: 0.7vw;
     cursor: pointer;
     margin-top:30px;
     background: #F3DEDE;
     border: 1px solid #E6E6E6;
     color:red;
     border-radius: 16px;
-    width: 5vw; 
-    height:3vh;
+    width: 6vw; 
+    height:4vh;
     justify-self: center;
     font-family: 'Pattaya';
     font-weight: bold;
@@ -137,9 +154,6 @@
     width:100%;
     margin-top:5px;
   }
-
-
-  
 
  
   

@@ -18,7 +18,7 @@ const Article = (props) => {
       </div>
       <hr />
       <div className="article-info">
-        <img src={props.image || art} className="article-image" alt="article-image" />
+        <img src={props.image || art} className="article-image" alt="article_img" />
         <p className="article-description">{props.description}</p>
         <button className="article-button" onClick={handleClick}>Go to Article</button>
         <img src={like} className="article-share" alt="like" />

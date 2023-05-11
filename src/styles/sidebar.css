@@ -1,3 +1,5 @@
+@import url('../App.css');
+
 .sidebar {
     width: 16%;
     height:84vh;
@@ -12,18 +14,20 @@
   
   .summary {
     padding: 32px;
-    height:72vh;
+    height:70vh;
   }
   
   .summary h2 {
     font-size: 24px;
     font-weight: bold;
     margin-top: 0;
+    font-family: 'Paprika';
   }
   
   .summary p {
     font-size: 16px;
     margin: 16px 0;
+    font-family:'Numans';
   }
 
   .file-upload {
@@ -36,13 +40,16 @@
   }
   
   .file-path {
-    flex: 1;
+    display:flex;
     margin-left:20px;
+    flex: 1;
+    font-family:'Numans';
   }
   
-  .file-name {
+  #file-name {
     font-weight: bold;
     margin: 0;
+    font-family:'Numans';
   }
   
   .file-upload-icon {

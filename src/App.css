@@ -36,4 +36,15 @@
     transform: rotate(360deg);
   }
 }
+@font-face {
+  font-family: 'Paprika';
+  src: url('../public/fonts/paprika.ttf');
+}
+
+@font-face {
+  font-family: 'Numans';
+  src: url('../public/fonts/numans.ttf');
+}
+
+
 

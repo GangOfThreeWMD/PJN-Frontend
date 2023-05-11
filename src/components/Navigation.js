@@ -1,48 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Navbar } from 'react-bootstrap';
 import logo from '../assets/logo.png';
+import search_icon from '../assets/search_icon.png'
 import '../styles/navbar.css';
-import axios from 'axios';
 
-const Navigation = ({ onSourceChange }) => {
-  const [options, setOptions] = useState([]);
+const Navigation = ({ onSourceChange, limit, onLimitChange }) => {
+  const options = ["all", "newsweek", "nbc"];
+  const [rotate, setRotate] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/summarizer/api/v1/sources")
-      .then((response) => {
-        const uniqueOptions = response.data.filter(
-          (value, index, self) => self.indexOf(value) === index
-        );
-        setOptions(uniqueOptions);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+
+  const handleLimitChange = (event) => {
+    const newLimit = parseInt(event.target.value, 10);
+    if (!isNaN(newLimit)) {
+      onLimitChange(newLimit);
+    }
+  };
 
   const handleSourceChange = (event) => {
     const selectedSource = event.target.value;
     onSourceChange(selectedSource);
   };
 
+  const handleSelectClick = () => {
+    setRotate(!rotate);
+  }
+
   return (
     <div className="navbar">
       <Navbar style={{ display: "flex", alignItems: "center" }}>
-        <img src={logo} width="auto" className="logo" alt="logo" />
+      <img src={logo} width="auto" className="logo" alt="logo" onClick={() => window.location.reload()} />
       </Navbar>
       <div className="search-bar">
-        <div className="tekst">
-          <h4>News provider:</h4>
-        </div>
         <div className="dropdown">
-          <select defaultValue="Select provider" onChange={handleSourceChange}>
-            <option disabled hidden>Select provider</option>
-            {options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+        <select defaultValue="Select Provider" onClick={handleSelectClick} onChange={handleSourceChange} style={{ backgroundImage: `url(${search_icon})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'left', backgroundPositionX: '20px', backgroundSize: '32px auto' }}>
+  <option disabled hidden>Select Provider</option>
+  {options.map((option) => (
+    <option key={option} value={option}>
+      {option}
+    </option>
+  ))}
+</select>
+          <div className={`dropdown-arrow ${rotate ? 'rotate' : ''}`}></div>
         </div>
+        <div className="limit_box">
+  <p>Limit:</p>
+  <select
+    className="dropdown_num"
+    value={limit}
+    onChange={handleLimitChange}
+  >
+    {[5, 10, 15].map((value) => (
+      <option key={value} value={value}>
+        {value}
+      </option>
+    ))}
+  </select>
+</div>
       </div>
       <hr />
     </div>

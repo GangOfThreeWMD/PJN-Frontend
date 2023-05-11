@@ -8,27 +8,32 @@ import axios from 'axios';
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
-  const [source, setSource] = useState("");
   const [loadingText, setLoadingText] = useState(null);
-
-  const handleSourceChange = (selectedSource) => {
-    setSource(selectedSource);
-  };
+  const [selectedSource, setSelectedSource] = useState('all');
+  const [limit, setLimit] = useState(5);
 
   useEffect(() => {
-    if (!source) {
-      setLoadingText("Waiting for your choice...");
-      return;
-    }
-
     setLoading(true);
     setLoadingText("Loading articles...");
     setArticles([]);
 
-    axios
-      .get(`http://localhost:8080/summarizer/api/v1/${source}`)
-      .then((response) => {
-        setArticles(response.data);
+    const sources = selectedSource === 'all' ? ["bbc", "guardian", "digital_journal", "nbc", "newsweek"] : [selectedSource];
+
+    const articlePromises = [];
+
+    for (const source of sources) {
+      const promise = axios.get(`http://localhost:8080/summarizer/api/v1/${source}`);
+      articlePromises.push(promise);
+    }
+
+    Promise.all(articlePromises)
+      .then((responses) => {
+        const articles = [];
+        for (const response of responses) {
+          const sourceArticles = response.data.slice(0, selectedSource === 'all' ? limit / 5 : limit);
+          articles.push(...sourceArticles);
+        }
+        setArticles(articles);
         setLoading(false);
         setLoadingText(null);
       })
@@ -37,23 +42,35 @@ const Dashboard = () => {
         setLoading(false);
         setLoadingText(null);
       });
-  }, [source]);
+  }, [selectedSource, limit]);
+
+  const handleSourceChange = (selectedSource) => {
+    setSelectedSource(selectedSource);
+  };
+
+  const handleLimitChange = (newLimit) => {
+    setLimit(newLimit);
+  };
 
   return (
     <div className="container">
-      <Navigation onSourceChange={handleSourceChange} />
+      <Navigation onSourceChange={handleSourceChange} onLimitChange={handleLimitChange} />
       {loadingText && <div className="loading">{loadingText}</div>}
-      {!loading && source && (
+      {!loading && (
         <div className="articles">
-          {articles.slice(0, 12).map((article, index) => (
-            <Article
-              key={`article-${index}`}
-              title={article.title.split(" ").slice(0, 25).join(" ")}
-              description={article.content}
-              image={article.urlToImage}
-              link={article.link}
-            />
-          ))}
+          {articles
+            .filter(article => selectedSource === 'all' || selectedSource.source === article.source)
+            .map((article, index) => (
+              <Article
+                key={`article-${index}`}
+                title={article.title.split(" ").slice(0, 8).join(" ")}
+                description={article.content.split(" ").filter(word => !word.endsWith("...")).join(" ")}
+                image={article.urlToImage}
+                link={article.link}
+                source={article.source}
+              />
+            ))
+          }
         </div>
       )}
       <Sidebar />
