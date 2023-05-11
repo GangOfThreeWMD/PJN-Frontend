@@ -48,8 +48,9 @@ const Navigation = ({ onSourceChange, limit, onLimitChange }) => {
     className="dropdown_num"
     value={limit}
     onChange={handleLimitChange}
+    defaultValue="8"
   >
-    {[5, 10, 15].map((value) => (
+    {[4, 8, 16].map((value) => (
       <option key={value} value={value}>
         {value}
       </option>

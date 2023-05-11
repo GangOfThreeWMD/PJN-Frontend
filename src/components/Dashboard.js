@@ -10,8 +10,8 @@ const Dashboard = () => {
   const [articles, setArticles] = useState([]);
   const [loadingText, setLoadingText] = useState(null);
   const [selectedSource, setSelectedSource] = useState('all');
-  const [limit, setLimit] = useState(5);
-
+  const [limit, setLimit] = useState(4);
+  
   useEffect(() => {
     setLoading(true);
     setLoadingText("Loading articles...");
@@ -30,10 +30,18 @@ const Dashboard = () => {
       .then((responses) => {
         const articles = [];
         for (const response of responses) {
-          const sourceArticles = response.data.slice(0, selectedSource === 'all' ? limit / 5 : limit);
+          const sourceArticles = response.data;
           articles.push(...sourceArticles);
         }
-        setArticles(articles);
+        const randomArticles = [];
+        while (randomArticles.length < limit && randomArticles.length < articles.length) {
+          const randomIndex = Math.floor(Math.random() * articles.length);
+          const randomArticle = articles[randomIndex];
+          if (!randomArticles.includes(randomArticle)) {
+            randomArticles.push(randomArticle);
+          }
+        }
+        setArticles(randomArticles.slice(0, limit)); 
         setLoading(false);
         setLoadingText(null);
       })
@@ -44,14 +52,20 @@ const Dashboard = () => {
       });
   }, [selectedSource, limit]);
 
+  useEffect(() => {
+    if (limit !== parseInt(document.getElementsByClassName("dropdown_num")[0].value)) {
+      setLimit(parseInt(document.getElementsByClassName("dropdown_num")[0].value));
+    }
+  }, [limit, selectedSource]);
+
   const handleSourceChange = (selectedSource) => {
     setSelectedSource(selectedSource);
+    setLimit(4); 
   };
 
   const handleLimitChange = (newLimit) => {
     setLimit(newLimit);
   };
-
   return (
     <div className="container">
       <Navigation onSourceChange={handleSourceChange} onLimitChange={handleLimitChange} />
@@ -60,6 +74,7 @@ const Dashboard = () => {
         <div className="articles">
           {articles
             .filter(article => selectedSource === 'all' || selectedSource.source === article.source)
+            .slice(0, Math.min(limit, articles.length))
             .map((article, index) => (
               <Article
                 key={`article-${index}`}

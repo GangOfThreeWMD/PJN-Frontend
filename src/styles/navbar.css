@@ -75,7 +75,6 @@ option {
   transition: transform 0.2s ease-in-out;
 }
 
-
 .rotate {
   transform: translateY(-50%) rotate(180deg);
 }
@@ -90,6 +89,7 @@ option {
   position:relative;
   left: 256%;
 }
+
 .dropdown_num{
   background-color:#F0BDBD;
   border: none;
@@ -103,6 +103,7 @@ option {
   color: #000000;
   text-align:left;
 }
+
 .limit_box p{
   margin-left:10%;
   font-family: 'Numans';
