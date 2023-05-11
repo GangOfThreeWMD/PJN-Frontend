@@ -5,7 +5,7 @@ import search_icon from '../assets/search_icon.png'
 import '../styles/navbar.css';
 
 const Navigation = ({ onSourceChange, limit, onLimitChange }) => {
-  const options = ["all", "newsweek", "nbc"];
+  const options = ["all", "bbc","guardian", "digital_journal", "newsweek", "nbc"];
   const [rotate, setRotate] = useState(false);
 
 
