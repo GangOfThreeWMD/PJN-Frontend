@@ -34,7 +34,9 @@ select {
   text-align: center;
   border: none; 
   appearance: none;
+  text-align-last: center;
 }
+
 select:focus {
   outline: none;
 }
@@ -67,11 +69,12 @@ option {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 16px 32px 16px;
-  border-color: transparent transparent #E28585 transparent;
+  border-width: 32px 16px 0 16px;
+  border-color: #E28585 transparent transparent transparent;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
+
 
 .rotate {
   transform: translateY(-50%) rotate(180deg);
