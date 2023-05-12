@@ -78,7 +78,7 @@ const Dashboard = () => {
             .map((article, index) => (
               <Article
                 key={`article-${index}`}
-                title={article.title.split(" ").slice(0, 8).join(" ")}
+                title={article.title}
                 description={article.content}
                 image={article.urlToImage}
                 link={article.link}
