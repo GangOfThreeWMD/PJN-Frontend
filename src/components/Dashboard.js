@@ -79,7 +79,7 @@ const Dashboard = () => {
               <Article
                 key={`article-${index}`}
                 title={article.title.split(" ").slice(0, 8).join(" ")}
-                description={article.content.split(" ").filter(word => !word.endsWith("...")).join(" ")}
+                description={article.content}
                 image={article.urlToImage}
                 link={article.link}
                 source={article.source}

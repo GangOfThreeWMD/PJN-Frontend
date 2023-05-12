@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import add_file from '../assets/add_file.png'
 import '../styles/sidebar.css';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
 
 const [fileName, setFileName] = useState("");
 const [summary, setSummary] = useState("");
@@ -15,7 +15,7 @@ const handleFileUpload = (event) => {
     reader.readAsText(file, "UTF-8");
     reader.onload = function (evt) {
       const text = evt.target.result;
-      fetch("http://localhost:8080/summarizer/api/v1", {
+      fetch("http://localhost:8080/summarizer/api/v1?max_sentences=5&min_length=400", {
         method: "POST",
         body: text
       })
@@ -34,19 +34,19 @@ const handleFileUpload = (event) => {
 return (
 <div className="sidebar">
 <div className="summary">
-<h2>Summary from file</h2>
-<p>{summary ? summary : "This is where the summary of the text uploaded by the user will be displayed."}</p>
+  <h2>Summary from file</h2>
+  <p>{summary ? summary : "This is where the summary of the text uploaded by the user will be displayed."}</p>
 </div>
 
-  <div className="file-upload">
-    <div className="file-path">
-      <p>Uploaded file: <span id="file-name">{fileName}</span></p>
-    </div>
-    <label htmlFor="file-upload" className="file-upload-label">
-      <img src={add_file} alt="Input file" className="file-upload-icon" />
-    </label>
-    <input type="file" id="file-upload" style={{ display: "none" }} accept=".txt" onChange={handleFileUpload} />
+<div className="file-upload">
+  <div className="file-path">
+    <p>Uploaded file: <span id="file-name">{fileName}</span></p>
   </div>
+  <label htmlFor="file-upload" className="file-upload-label">
+    <img src={add_file} alt="Input file" className="file-upload-icon" />
+  </label>
+  <input type="file" id="file-upload" style={{ display: "none" }} accept=".txt" onChange={handleFileUpload} />
+</div>
 </div>
 );
 };

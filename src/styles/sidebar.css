@@ -18,7 +18,7 @@
   }
   
   .summary h2 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     margin-top: 0;
     font-family: 'Paprika';
@@ -28,6 +28,7 @@
     font-size: 16px;
     margin: 16px 0;
     font-family:'Numans';
+    text-align:left;
   }
 
   .file-upload {
