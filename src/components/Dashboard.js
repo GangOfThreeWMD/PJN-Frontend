@@ -60,7 +60,6 @@ const Dashboard = () => {
 
   const handleSourceChange = (selectedSource) => {
     setSelectedSource(selectedSource);
-    setLimit(4); 
   };
 
   const handleLimitChange = (newLimit) => {
